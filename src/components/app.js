@@ -151,6 +151,13 @@ export default class App extends React.Component {
     return (
       <div>
         <h1>sdvxめも</h1>
+        <h2>リンク集</h2>
+        <ul>
+          <li><a href="https://p.eagate.573.jp/game/sdvx/">KONAMI</a></li>
+          <li><a href="http://bemaniwiki.com/index.php?SOUND%20VOLTEX%20IV%20HEAVENLY%20HAVEN">Wiki</a></li>
+          <li><a href="http://www.sdvx.in/">譜面サイト</a></li>
+          <li><a href="http://nearnoah.sakura.ne.jp/sdvxiv/">スコアツール</a></li>
+        </ul>
         <h2 style={{margin:0, padding:10}}>譜面サイト検索</h2>
         <form onSubmit={this.handleSubmit} style={{margin:0, padding:10}}>
           <select value={this.state.level} onChange={this.handleOnChangeLevel} style={selectLevelStyle}>
@@ -174,13 +181,6 @@ export default class App extends React.Component {
           />
           <input type="submit" value="検索" style={submitButtonStyle} />
         </form>
-        <h2>リンク集</h2>
-        <ul>
-          <li><a href="https://p.eagate.573.jp/game/sdvx/">KONAMI</a></li>
-          <li><a href="http://bemaniwiki.com/index.php?SOUND%20VOLTEX%20IV%20HEAVENLY%20HAVEN">Wiki</a></li>
-          <li><a href="http://www.sdvx.in/">譜面サイト</a></li>
-          <li><a href="http://nearnoah.sakura.ne.jp/sdvxiv/">スコアツール</a></li>
-        </ul>
       </div>
     );
   }
