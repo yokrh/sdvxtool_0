@@ -149,28 +149,39 @@ export default class App extends React.Component {
     };
 
     return (
-      <form onSubmit={this.handleSubmit} style={{margin:0, padding:10}}>
-        <select value={this.state.level} onChange={this.handleOnChangeLevel} style={selectLevelStyle}>
-          <option value="16">16</option>
-          <option value="17">17</option>
-          <option value="18">18</option>
-          <option value="19">19</option>
-          <option value="20">20</option>
-        </select>
-        <Autocomplete
-          items={this.state.tracks}
-          value={this.state.word}
-          getItemValue={(item) => item.name}
-          renderItem={(item, isHighlighted) =>
-            <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>{item.name}</div>
-          }
-          onChange={this.handleOnChangeWord}
-          onSelect={(val, item) => this.handleOnSelectAutocompleteWord(item)}
-          wrapperStyle={autocompleteStyle}
-          menuStyle={autocompleteInputStyle}
-        />
-        <input type="submit" value="検索" style={submitButtonStyle} />
-      </form>
+      <div>
+        <h1>sdvxめも</h1>
+        <h2 style={{margin:0, padding:10}}>譜面サイト検索</h2>
+        <form onSubmit={this.handleSubmit} style={{margin:0, padding:10}}>
+          <select value={this.state.level} onChange={this.handleOnChangeLevel} style={selectLevelStyle}>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+          </select>
+          <Autocomplete
+            items={this.state.tracks}
+            value={this.state.word}
+            getItemValue={(item) => item.name}
+            renderItem={(item, isHighlighted) =>
+              <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>{item.name}</div>
+            }
+            onChange={this.handleOnChangeWord}
+            onSelect={(val, item) => this.handleOnSelectAutocompleteWord(item)}
+            wrapperStyle={autocompleteStyle}
+            menuStyle={autocompleteInputStyle}
+          />
+          <input type="submit" value="検索" style={submitButtonStyle} />
+        </form>
+        <h2>リンク集</h2>
+        <ul>
+          <li><a href="https://p.eagate.573.jp/game/sdvx/">KONAMI</a></li>
+          <li><a href="http://bemaniwiki.com/index.php?SOUND%20VOLTEX%20IV%20HEAVENLY%20HAVEN">Wiki</a></li>
+          <li><a href="http://www.sdvx.in/">譜面サイト</a></li>
+          <li><a href="http://nearnoah.sakura.ne.jp/sdvxiv/">スコアツール</a></li>
+        </ul>
+      </div>
     );
   }
 }
