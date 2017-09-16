@@ -105,9 +105,52 @@ export default class App extends React.Component {
   }
 
   render() {
+    const selectLevelStyle = {
+      verticalAlign: 'middle',
+      margin: '1 2%',
+      padding: '0 2%',
+      width: '16%',
+      height: '24px',
+      lineHeight: '24px',
+      fontSize: '12px',
+      backgroundColor: '#fafafaf',
+      border: '1px solid #8888ff',
+      borderRadius: '2px'
+    };
+
+    const autocompleteStyle = {
+      display: 'inline-block',
+      verticalAlign: 'middle',
+      boxSizing: 'border-box',
+      width: '50%',
+      height: '26px',
+      border: '1px solid #8888ff'
+    };
+
+    const autocompleteInputStyle = {
+      paddingLeft: '4%',
+      width: '100%',
+      height: '24px',
+      lineHeight: '18px',
+      fontSize: '12px'
+    };
+
+    const submitButtonStyle = {
+      verticalAlign: 'middle',
+      boxSizing: 'border-box',
+      margin: '0 3%',
+      padding: '2px 2%',
+      width: '24%',
+      height: '26px',
+      color: '#fff',
+      backgroundColor: '#8888ff',
+      border: '1px solid #8888ff',
+      borderRadius: '4px'
+    };
+
     return (
-      <form onSubmit={this.handleSubmit}>
-        <select value={this.state.level} onChange={this.handleOnChangeLevel}>
+      <form onSubmit={this.handleSubmit} style={{margin:0, padding:10}}>
+        <select value={this.state.level} onChange={this.handleOnChangeLevel} style={selectLevelStyle}>
           <option value="16">16</option>
           <option value="17">17</option>
           <option value="18">18</option>
@@ -123,8 +166,10 @@ export default class App extends React.Component {
           }
           onChange={this.handleOnChangeWord}
           onSelect={(val, item) => this.handleOnSelectAutocompleteWord(item)}
+          wrapperStyle={autocompleteStyle}
+          menuStyle={autocompleteInputStyle}
         />
-        <input type="submit" value="検索" />
+        <input type="submit" value="検索" style={submitButtonStyle} />
       </form>
     );
   }
