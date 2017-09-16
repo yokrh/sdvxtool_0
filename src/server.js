@@ -44,7 +44,7 @@ app.get('/api/track/list', (req, res) => {
   let matchedTrackList = [];
   for (const key in tracks) {
     const track = tracks[key];
-    const name = track.name;
+    const name = track.name + ' [' + track.difficulty + ']';
     const path = track.path;
 
     if (!name.toLowerCase().includes(word.toLowerCase())) continue;
