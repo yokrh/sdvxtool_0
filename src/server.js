@@ -3,6 +3,8 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import App from './components/app';
 import fs from 'fs';
+import childProcess from 'child_process';
+const exec = childProcess.exec;
 
 // init express
 const app = express();
@@ -10,9 +12,8 @@ const app = express();
 // static
 app.use('/static', express.static('dist'));
 
-// root
+// content
 app.get('/', (req, res) => {
-
   res.send(
     ReactDOMServer.renderToString(
       <html lang="ja">
@@ -53,6 +54,15 @@ app.get('/api/track/list', (req, res) => {
   }
 
   res.send(JSON.stringify(matchedTrackList));
+});
+app.get('/api/track/update', (req, res) => {
+  const COMMAND = 'python private/sdvxFumen.py';
+  exec(COMMAND, function(error, stdout, stderr) {
+    if (error !== null) {
+      res.send('update exec error : ' + error);
+    }
+  });
+  res.send('update done');
 });
 
 // start listen
