@@ -1,9 +1,11 @@
 # coding: UTF-8
+import os
 import re
 import json
 import urllib2
 from bs4 import BeautifulSoup
 
+crrDir = os.path.dirname(os.path.abspath(__file__))
 
 for i in range(15, 21):
   level = str(i)
@@ -13,11 +15,11 @@ for i in range(15, 21):
   soup = BeautifulSoup(html, "html.parser")
   body = str(soup.body)
 
-  f = open(level + ".html" + ".txt", "w")
+  f = open(crrDir + "/" + level + ".html" + ".txt", "w")
   f.write(body)
   f.close()
 
-  f = open(level + ".html" + ".txt", "r")
+  f = open(crrDir + "/" + level + ".html" + ".txt", "r")
   flines = f.readlines()
   f.close()
 
@@ -48,6 +50,6 @@ for i in range(15, 21):
       data[id] = value
 
   jsonstr = json.dumps(data, ensure_ascii=False)
-  f = open(level + ".json", "w")
+  f = open(crrDir + "/" + level + ".json", "w")
   f.write(jsonstr)
   f.close()
