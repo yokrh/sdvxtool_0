@@ -22,25 +22,30 @@ for i in range(15, 21):
   f.close()
 
   data = {}
+  difficultyMap = {"a": "ADV", "e": "EXH", "i": "INF", "g": "GRV", "h": "HVN", "m": "MXM"}
+  difficultyVerMap = {"i": "02", "g": "03", "h": "04"}
   for fline in flines:
-    k = re.search("SORT(.+?)\(\)", fline)
-    n = re.search("<!--(.+?)-->", fline)
-    if k and n:
-      key = k.group(1).lower()
-      name = n.group(1)
-      ver = key[0:2]
-      if "i" in key: ver = "02"
-      if "g" in key: ver = "03"
-      if "h" in key: ver = "04"
-      path = "/" + ver + "/" + key
+    id_data = re.search("SORT(.+?)\(\)", fline)
+    name_data = re.search("<!--(.+?)-->", fline)
+    if id_data and name_data:
+      id = id_data.group(1).lower()
+      name = name_data.group(1)
+      difficulty = "-"
+      for k, v in difficultyMap.iteritems():
+        if k in id: difficulty = v
+      ver = id[0:2]
+      for k, v in difficultyVerMap.iteritems():
+        if k in id: ver = v
+      path = "/" + ver + "/" + id
 
       value = {
-        "id": key,
+        "id": id,
         "name": name,
+        "difficulty": difficulty,
         "ver": ver,
         "path": path
       }
-      data[key] = value
+      data[id] = value
 
   jsonstr = json.dumps(data, ensure_ascii=False)
   f = open(level + ".json", "w")
