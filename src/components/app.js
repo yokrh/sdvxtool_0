@@ -1,31 +1,129 @@
 import React from 'react';
+import Autocomplete from 'react-autocomplete';
 
-export default class Client extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      level: 18,
+      word: '',
+      path: '',
+      tracks: []
+    }
+
+    this._fetchTracks = this._fetchTracks.bind(this);
+    this.handleOnChangeLevel = this.handleOnChangeLevel.bind(this);
+    this.handleOnChangeWord = this.handleOnChangeWord.bind(this);
+    this.handleOnSelectAutocompleteWord = this.handleOnSelectAutocompleteWord.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // 非同期でトラックリストを取得する
+  _fetchTracks(level, word) {
+    const url = '/api/track/list?level=' + this.state.level + '&word=' + word;
+    const self = this;
+    return new Promise(function(resolve, reject){
+      fetch(url).then(function(res) {
+        return res.json();
+      }).then(function(json){
+        self.setState({
+          tracks: json
+        })
+        return json;
+      }).then(function(json){
+        resolve(json);
+      }).catch(function(error){
+        reject(error);
+      });
+    });
+  }
+
+  // フォームのlevelを変更した際に、levelを取得する
+  handleOnChangeLevel(e) {
+    const level = e.target.value;
+    this.setState({
+      level: e.target.value,
+      word: '',
+      path: '',
+      tracks: []
+    });
+  }
+
+  // フォームのwordを変更した際に、wordを取得し、非同期でtracksを取得する
+  handleOnChangeWord(e) {
+    const word = e.target.value;
+    this.setState({
+      word: word
+    })
+    if (word.length < 2) return;
+
+    const level = this.state.level;
+    this._fetchTracks(level, word);
+  }
+
+  // オートコンプリートでトラックを選択した際に、トラックの情報を取得してフォームに反映する
+  handleOnSelectAutocompleteWord(track) {
+    const name = track.name;
+    const path = track.path;
+
+    this.setState({
+      word: name,
+      path: path
+    })
+  }
+
+  // フォームの送信処理
   handleSubmit(e) {
     e.preventDefault();
 
-    const level = this.refs.level.value;
+    const level = this.state.level;
+    const path = this.state.path;
+    const word = this.state.word;
+
     if (!level) return false;
 
-    location.href = "http://www.sdvx.in/sort/sort_" + level + ".htm";
+    if (path) {
+      // トラックが指定されている場合、譜面ページに飛ぶ
+      window.open('http://www.sdvx.in' + path + '.htm', '_blank');
+    } else {
+      // トラックが指定されていない場合
+      if (word) {
+        // wordが入力されていたら、wordからトラックを推定し、譜面ページに飛ぶ
+        this._fetchTracks(level, word).then(function(tracks){
+          if (tracks && tracks.length > 0) {
+            const track = tracks[0];
+            window.open('http://www.sdvx.in' + track.path + '.htm', '_blank');
+          }
+        });
+      } else {
+        // 譜面一覧ページに飛ぶ
+        window.open('http://www.sdvx.in/sort/sort_' + level + '.htm', '_blank');
+      }
+    }
     return false;
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <select ref="level" defaultValue="18">
+        <select value={this.state.level} onChange={this.handleOnChangeLevel}>
           <option value="16">16</option>
           <option value="17">17</option>
           <option value="18">18</option>
           <option value="19">19</option>
           <option value="20">20</option>
         </select>
+        <Autocomplete
+          items={this.state.tracks}
+          value={this.state.word}
+          getItemValue={(item) => item.name}
+          renderItem={(item, isHighlighted) =>
+            <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>{item.name}</div>
+          }
+          onChange={this.handleOnChangeWord}
+          onSelect={(val, item) => this.handleOnSelectAutocompleteWord(item)}
+        />
         <input type="submit" value="検索" />
       </form>
     );

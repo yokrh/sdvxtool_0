@@ -1,0 +1,61 @@
+<body><center>
+<p class="br"></p><br/>
+<p class="br"></p><br/>
+<table class="c"><tr><td class="c">
+<div class="sorttitle"><script>SORTTITLE00();</script></div>
+<p class="br"></p>
+<div class="sortlevel"><script>SORTLEVEL00();</script></div>
+</td></tr></table>
+<table class="c"><tr><td>
+<script>SDVXLG04S();</script>
+<script>SORT04135M();</script><!--Deadly force-->
+<script>SORT04137M();</script><!--Dyscontrolled Galaxy-->
+<script>SORT04056M();</script><!--Fin.ArcDeaR-->
+<script>SORT04069M();</script><!--Sailing Force-->
+<script>SORT04134M();</script><!--Staring at star-->
+<script>SORT04132M();</script><!--セイレーン ～悲壮の竪琴～-->
+<script>SDVXLG03S();</script>
+<script>SORT03176H();</script><!--FLOWER-->
+<script>SORT03178H();</script><!--Garakuta Doll Play-->
+<script>SORT03177H();</script><!--Got more raves？-->
+<script>SORT03179H();</script><!--きたさいたま2000-->
+<script>SORT03394H();</script><!--極圏-->
+<script>SORT03148G();</script><!--ΑΩ--->
+<script>SORT03149G();</script><!--Blastix Riotz-->
+<script>SORT03359G();</script><!--DIABLOSIS::N&#0257;ga-->
+<script>SORT03075G();</script><!--Everlasting Message-->
+<script>SORT03368G();</script><!--FL&#0252;geL《Λrp:Σggy&#216;》-->
+<script>SORT03074G();</script><!--KAC 2012 ULTIMATE MEDLEY-->
+<script>SORT03263G();</script><!--KAC 2013 ULTIMATE MEDLEY -HISTORIA SOUND VOLTEX- Emperor Side-->
+<script>SORT03360G();</script><!--Load=Crossight-->
+<script>SORT03150G();</script><!--Preserved Valkyria-->
+<script>SORT03151G();</script><!--XyHATTE-->
+<script>SORT03198G();</script><!--月光乱舞-->
+<script>SORT03167E();</script><!--Firestorm-->
+<script>SORT03093E();</script><!--HAVOX-->
+<script>SORT03263E();</script><!--KAC 2013 ULTIMATE MEDLEY -HISTORIA SOUND VOLTEX- Emperor Side-->
+<script>SORT03152E();</script><!--veRtrageS-->
+<script>SORT03229E();</script><!--XHAOS JUDGE-->
+<script>SDVXLG02S();</script>
+<script>SORT02112H();</script><!--Booths of Fighters-->
+<script>SORT02113H();</script><!--Quietus Ray-->
+<script>SORT02184H();</script><!--Verse IV-->
+<script>SORT02169G();</script><!--Bangin' Burst-->
+<script>SORT02215G();</script><!--Black Emperor-->
+<script>SORT02173G();</script><!--BLACK or WHITE?-->
+<script>SORT02295G();</script><!--Growth Memories-->
+<script>SORT02119G();</script><!--snow storm -euphoria--->
+<script>SORT02125G();</script><!--XROSS INFECTION-->
+<script>SORT02169E();</script><!--Bangin' Burst-->
+<script>SORT02168E();</script><!--For UltraPlayers-->
+<script>SDVXLG01S();</script>
+<script>SORT01114G();</script><!--大宇宙ステージ-->
+<script>SORT01071I();</script><!--Ganymede kamome mix-->
+<script>SORT01124I();</script><!--Max Burning!!-->
+</td></tr></table>
+<p class="br"></p>
+<script>ADD();</script>
+<script>TBLEVEL19();</script>
+<script>LEVEL19();</script>
+<script>TBG();</script>
+</center></body>
