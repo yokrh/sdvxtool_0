@@ -35,8 +35,8 @@ app.get('/', (req, res) => {
 });
 
 // api
-app.get('/api/fumen/list', (req, res) => {
-  console.log('/api/fumen/list');
+app.get('/api/track/list', (req, res) => {
+  console.log('/api/track/list');
 
   const level = req.query.level;
   const word = req.query.word;
