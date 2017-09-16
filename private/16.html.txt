@@ -1,9 +1,11 @@
 <body><center>
+<p class="br"></p><br/>
+<p class="br"></p><br/>
+<table class="c"><tr><td class="c">
+<div class="sorttitle"><script>SORTTITLE00();</script></div>
 <p class="br"></p>
-<script>SORTTITLE00();</script>
-<p class="br"></p>
-<script>SORTLEVEL00();</script>
-<p class="br"></p>
+<div class="sortlevel"><script>SORTLEVEL00();</script></div>
+</td></tr></table>
 <table class="c"><tr><td>
 <script>SDVXLG04S();</script>
 <script>SORT04014M();</script><!--bass 2 bass [Tracy vs. Astronomical Remix]-->
