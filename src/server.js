@@ -19,7 +19,8 @@ app.get('/', (req, res) => {
       <html lang="ja">
         <head>
           <meta charSet="UTF-8" />
-          <title>app</title>
+          <meta name="viewport" content="width=device-width,initial-scale=1" />
+          <title>sdvxめも</title>
         </head>
         <body>
           <div>
@@ -66,6 +67,7 @@ app.get('/api/track/update', (req, res) => {
 });
 
 // start listen
-app.listen(3000, () => {
-  console.log('Express listening on port 3000!');
+app.listen(process.env.PORT || 3000, () => {
+  const port = (process.env.PORT || 3000);
+  console.log('Express listening on port ' + port + '!');
 });
