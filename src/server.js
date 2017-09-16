@@ -1,8 +1,8 @@
-import express from 'express'
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
-import App from './components/app'
-import fs from 'fs'
+import express from 'express';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import App from './components/app';
+import fs from 'fs';
 
 // init express
 const app = express();
@@ -12,7 +12,6 @@ app.use('/static', express.static('dist'));
 
 // root
 app.get('/', (req, res) => {
-  console.log('/');
 
   res.send(
     ReactDOMServer.renderToString(
@@ -24,7 +23,6 @@ app.get('/', (req, res) => {
         <body>
           <div>
             <div id="app">
-              <App />
             </div>
             <script src="/static/bundle.js" />
           </div>
@@ -36,12 +34,11 @@ app.get('/', (req, res) => {
 
 // api
 app.get('/api/track/list', (req, res) => {
-  console.log('/api/track/list');
-
   const level = req.query.level;
   const word = req.query.word;
+  if (!level || !word) res.send('{}');
 
-  const trackJsonPath = "private/"+ level +".json";
+  const trackJsonPath = 'private/'+ level +'.json';
   const tracks = JSON.parse(fs.readFileSync(trackJsonPath, 'utf8'));
 
   let matchedTrackList = [];
