@@ -1,5 +1,7 @@
 module.exports = {
-  entry: __dirname + '/src/client.js',
+  entry: {
+    app: __dirname + '/src/client.js'
+  },
   module: {
     loaders: [
       {
@@ -10,7 +12,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: 'bundle.js',
-    path: __dirname + '/dist'
+    path: __dirname + '/dist',
+    filename: "./js/[name].bundle.js"
   }
 }

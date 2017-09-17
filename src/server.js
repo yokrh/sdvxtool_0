@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
           <div>
             <div id="app">
             </div>
-            <script src="/static/bundle.js" />
+            <script src="/static/js/app.bundle.js" />
           </div>
           <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
           <script>window.mdc.autoInit();</script>
