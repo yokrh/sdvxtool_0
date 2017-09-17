@@ -1,0 +1,79 @@
+body, h1, h2 {
+  margin: 0;
+}
+ul {
+  margin: 0;
+  font-size: 0;
+}
+
+body {
+  padding-bottom: 300px;
+  background-color: #f0f8ff;
+}
+
+#app {
+  .page-title {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #00aeff;
+    text-shadow: 0 2px 2px #88aaff;
+    background-color: #ddeeff;
+    border-bottom: 3px solid #aaeeff;
+  }
+  .section-title {
+    margin-top: 16px;
+    width: 92%;
+    padding: 8px 4%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 24px;
+    color: #444;
+    text-shadow: 0px 3px 3px #eeeeee;
+  }
+  .link-list {
+    width: 92%;
+    padding: 8px 4%;
+    .link {
+      list-style: none;
+      padding-left: 4%;
+      height: 32px;
+      line-height: 32px;
+      font-size: 16px;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+  #search-track-form {
+    margin: 8px 4%;
+    width: 92%;
+    padding: 10px 0;
+    background-color: #eeeeee;
+    .level-select {
+      margin: 0 56% 8px 4%;
+      padding: 0 2%;
+      width: 16%;
+      border-bottom: solid 1px #ccc;
+      vertical-align: middle;
+    }
+    .submit-button {
+      margin: 0 2%;
+      margin-bottom: -86px;
+      width: 20%;
+      min-width: auto;
+      background-color: #6495ed;
+      vertical-align: middle;
+    }
+    > div {
+      width: 70%;
+      padding: 8px 4%;
+      height: 32px;
+      input {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

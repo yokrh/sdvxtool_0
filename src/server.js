@@ -20,14 +20,18 @@ app.get('/', (req, res) => {
         <head>
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />
+          <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
+          <link rel="stylesheet" href="/static/css/app.css" />
           <title>sdvxめも</title>
         </head>
         <body>
           <div>
             <div id="app">
             </div>
-            <script src="/static/bundle.js" />
+            <script src="/static/js/app.bundle.js" />
           </div>
+          <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+          <script>window.mdc.autoInit();</script>
         </body>
       </html>
     )
@@ -40,7 +44,7 @@ app.get('/api/track/list', (req, res) => {
   const word = req.query.word;
   if (!level || !word) res.send('{}');
 
-  const trackJsonPath = 'private/'+ level +'.json';
+  const trackJsonPath = 'private/data/'+ level +'.json';
   const tracks = JSON.parse(fs.readFileSync(trackJsonPath, 'utf8'));
 
   let matchedTrackList = [];
@@ -57,7 +61,7 @@ app.get('/api/track/list', (req, res) => {
   res.send(JSON.stringify(matchedTrackList));
 });
 app.get('/api/track/update', (req, res) => {
-  const COMMAND = 'python private/sdvxFumen.py';
+  const COMMAND = 'python private/bin/sdvxFumen.py';
   exec(COMMAND, function(error, stdout, stderr) {
     if (error !== null) {
       res.send('update exec error : ' + error);

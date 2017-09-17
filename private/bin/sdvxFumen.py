@@ -5,7 +5,8 @@ import json
 import urllib2
 from bs4 import BeautifulSoup
 
-crrDir = os.path.dirname(os.path.abspath(__file__))
+crrDir = os.path.dirname(os.path.abspath(__file__)) + '/'
+distDir = crrDir + '../data/'
 
 for i in range(15, 21):
   level = str(i)
@@ -15,11 +16,11 @@ for i in range(15, 21):
   soup = BeautifulSoup(html, "html.parser")
   body = str(soup.body)
 
-  f = open(crrDir + "/" + level + ".html" + ".txt", "w")
+  f = open(distDir + level + ".html.txt", "w")
   f.write(body)
   f.close()
 
-  f = open(crrDir + "/" + level + ".html" + ".txt", "r")
+  f = open(distDir + level + ".html.txt", "r")
   flines = f.readlines()
   f.close()
 
@@ -50,6 +51,6 @@ for i in range(15, 21):
       data[id] = value
 
   jsonstr = json.dumps(data, ensure_ascii=False)
-  f = open(crrDir + "/" + level + ".json", "w")
+  f = open(distDir + level + ".json", "w")
   f.write(jsonstr)
   f.close()
