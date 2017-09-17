@@ -105,62 +105,19 @@ export default class App extends React.Component {
   }
 
   render() {
-    const selectLevelStyle = {
-      verticalAlign: 'middle',
-      margin: '1 2%',
-      padding: '0 2%',
-      width: '16%',
-      height: '24px',
-      lineHeight: '24px',
-      fontSize: '12px',
-      backgroundColor: '#fafafaf',
-      border: '1px solid #8888ff',
-      borderRadius: '2px'
-    };
-
-    const autocompleteStyle = {
-      display: 'inline-block',
-      verticalAlign: 'middle',
-      boxSizing: 'border-box',
-      width: '50%',
-      height: '26px',
-      border: '1px solid #8888ff'
-    };
-
-    const autocompleteInputStyle = {
-      paddingLeft: '4%',
-      width: '100%',
-      height: '24px',
-      lineHeight: '18px',
-      fontSize: '12px'
-    };
-
-    const submitButtonStyle = {
-      verticalAlign: 'middle',
-      boxSizing: 'border-box',
-      margin: '0 3%',
-      padding: '2px 2%',
-      width: '24%',
-      height: '26px',
-      color: '#fff',
-      backgroundColor: '#8888ff',
-      border: '1px solid #8888ff',
-      borderRadius: '4px'
-    };
-
     return (
       <div>
         <h1>sdvxめも</h1>
-        <h2 style={{margin:0, padding:10}}>リンク集</h2>
+        <h2>リンク集</h2>
         <ul>
           <li><a href="https://p.eagate.573.jp/game/sdvx/">KONAMI</a></li>
           <li><a href="http://bemaniwiki.com/index.php?SOUND%20VOLTEX%20IV%20HEAVENLY%20HAVEN">Wiki</a></li>
           <li><a href="http://www.sdvx.in/">譜面サイト</a></li>
           <li><a href="http://nearnoah.sakura.ne.jp/sdvxiv/">スコアツール</a></li>
         </ul>
-        <h2 style={{margin:0, padding:10}}>譜面サイト検索</h2>
-        <form onSubmit={this.handleSubmit} style={{margin:0, marginBottom:60, padding:10}}>
-          <select value={this.state.level} onChange={this.handleOnChangeLevel} style={selectLevelStyle}>
+        <h2>譜面サイト検索</h2>
+        <form onSubmit={this.handleSubmit}>
+          <select value={this.state.level} onChange={this.handleOnChangeLevel}>
             <option value="16">16</option>
             <option value="17">17</option>
             <option value="18">18</option>
@@ -171,15 +128,11 @@ export default class App extends React.Component {
             items={this.state.tracks}
             value={this.state.word}
             getItemValue={(item) => item.name}
-            renderItem={(item, isHighlighted) =>
-              <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>{item.name}</div>
-            }
+            renderItem={(item, isHighlighted) => <div>{item.name}</div>}
             onChange={this.handleOnChangeWord}
             onSelect={(val, item) => this.handleOnSelectAutocompleteWord(item)}
-            wrapperStyle={autocompleteStyle}
-            menuStyle={autocompleteInputStyle}
           />
-          <input type="submit" value="検索" style={submitButtonStyle} />
+          <input type="submit" value="検索" />
         </form>
       </div>
     );
