@@ -1,0 +1,11 @@
+h1 {
+    background-color: blue;
+}
+
+form {
+    background-color: yellow;
+    > div {
+        width: 60%;
+        background-color: red;
+    }
+}

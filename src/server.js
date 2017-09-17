@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />
           <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
+          <link rel="stylesheet" href="/static/css/app.css" />
           <title>sdvxめも</title>
         </head>
         <body>
