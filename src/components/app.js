@@ -117,7 +117,7 @@ export default class App extends React.Component {
         </ul>
         <h2>譜面サイト検索</h2>
         <form onSubmit={this.handleSubmit}>
-          <select value={this.state.level} onChange={this.handleOnChangeLevel}>
+          <select className="mdc-select" value={this.state.level} onChange={this.handleOnChangeLevel}>
             <option value="16">16</option>
             <option value="17">17</option>
             <option value="18">18</option>
@@ -132,7 +132,7 @@ export default class App extends React.Component {
             onChange={this.handleOnChangeWord}
             onSelect={(val, item) => this.handleOnSelectAutocompleteWord(item)}
           />
-          <input type="submit" value="検索" />
+          <input className="mdc-button mdc-button--raised" type="submit" value="検索" />
         </form>
       </div>
     );
