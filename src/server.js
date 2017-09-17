@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
         <head>
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />
+          <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
           <title>sdvxめも</title>
         </head>
         <body>
@@ -28,6 +29,8 @@ app.get('/', (req, res) => {
             </div>
             <script src="/static/bundle.js" />
           </div>
+          <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+          <script>window.mdc.autoInit();</script>
         </body>
       </html>
     )
