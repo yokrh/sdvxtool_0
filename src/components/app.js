@@ -106,24 +106,38 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>sdvxめも</h1>
-        <h2>リンク集</h2>
-        <ul>
-          <li><a href="https://p.eagate.573.jp/game/sdvx/">KONAMI</a></li>
-          <li><a href="http://bemaniwiki.com/index.php?SOUND%20VOLTEX%20IV%20HEAVENLY%20HAVEN">Wiki</a></li>
-          <li><a href="http://www.sdvx.in/">譜面サイト</a></li>
-          <li><a href="http://nearnoah.sakura.ne.jp/sdvxiv/">スコアツール</a></li>
+      <div id="app">
+        <h1 className="page-title">sdvxめも</h1>
+        <h2 className="section-title">リンク集</h2>
+        <ul className="link-list">
+          <li className="link">
+            <a href="https://p.eagate.573.jp/game/sdvx/">SDVX IV</a>
+            <img src="/static/img/icon-link.jpg" alt="" width="10" style={{paddingLeft:10}} />
+          </li>
+          <li className="link">
+            <a href="http://bemaniwiki.com/index.php?SOUND%20VOLTEX%20IV%20HEAVENLY%20HAVEN">Wiki</a>
+            <img src="/static/img/icon-link.jpg" alt="" width="10" style={{paddingLeft:10}} />
+          </li>
+          <li className="link">
+            <a href="http://www.sdvx.in/">譜面サイト</a>
+            <img src="/static/img/icon-link.jpg" alt="" width="10" style={{paddingLeft:10}} />
+          </li>
+          <li className="link">
+            <a href="http://nearnoah.sakura.ne.jp/sdvxiv/">スコアツール</a>
+            <img src="/static/img/icon-link.jpg" alt="" width="10" style={{paddingLeft:10}} />
+          </li>
         </ul>
-        <h2>譜面サイト検索</h2>
-        <form onSubmit={this.handleSubmit}>
-          <select className="mdc-select" value={this.state.level} onChange={this.handleOnChangeLevel}>
+        <h2 className="section-title">譜面サイト検索</h2>
+        <form id="search-track-form" onSubmit={this.handleSubmit}>
+          <select className="level-select mdc-select" value={this.state.level} onChange={this.handleOnChangeLevel}>
+            <option value="15">15</option>
             <option value="16">16</option>
             <option value="17">17</option>
             <option value="18">18</option>
             <option value="19">19</option>
             <option value="20">20</option>
           </select>
+          <input className="submit-button mdc-button mdc-button--raised" type="submit" value="検索" />
           <Autocomplete
             items={this.state.tracks}
             value={this.state.word}
@@ -131,8 +145,19 @@ export default class App extends React.Component {
             renderItem={(item, isHighlighted) => <div>{item.name}</div>}
             onChange={this.handleOnChangeWord}
             onSelect={(val, item) => this.handleOnSelectAutocompleteWord(item)}
+            menuStyle={{
+              top: 0,
+              left: 0,
+              padding: '4px 2%',
+              fontSize: 12,
+              lineHeight: 2,
+              maxHeight: 240,
+              width: '96%',
+              borderBottom: '1px solid #bebebe',
+              overflow: 'scroll',
+              backgroundColor: '#fff'
+            }}
           />
-          <input className="mdc-button mdc-button--raised" type="submit" value="検索" />
         </form>
       </div>
     );
