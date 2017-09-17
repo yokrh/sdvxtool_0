@@ -20,6 +20,7 @@
     "cssnano": "^3.10.0",
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
     "postcss-loader": "^2.0.6",
     "postcss-nested": "^2.1.2",
     "react": "^15.6.1",
